@@ -6,9 +6,13 @@ For this script to work, you need to download ffmpeg from the official site and 
 3. run the program using the command line (cmd) 
 # program call example:
 C:\>python C:\Cut_and_convert_audio\cut_audio.py C:\data_set
+
 Where:
+
 the first parameter - is the path to the python interpreter
+
 the second parameter - is the path to the .py file
+
 the third parameter - is the path to the folder with your .wav files
 # note1: 
 file checking happens recursively, that is, all .wav attached files starting from the specified path
