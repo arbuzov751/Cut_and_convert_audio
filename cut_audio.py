@@ -1,21 +1,23 @@
 import sys
 import glob
 from pydub import AudioSegment
+from tqdm import tqdm
+
 
 # For this script to work, you need to download ffmpeg from the official site
-# and register the full path to exe file in AudioSegment.converter
+# and register the full path to exe file in path_to_ffmpeg
 
-path_to_ffmpeg = f"D:\Extract_audio_from_video\\venv_for_audio\\ffmpeg-20200617-0b3bd00-win64-static\\bin\\ffmpeg.exe"
+path_to_ffmpeg = f"D:\Cut_and_convert_audio\\venv_for_audio\\ffmpeg-20200617-0b3bd00-win64-static\\bin\\ffmpeg.exe"
 
 AudioSegment.converter = path_to_ffmpeg
 
 all_files = glob.glob(f"{sys.argv[1]}\**\*.wav")
-# all_files = glob.glob(f"D:\Download\data_set\**\*.wav")
+# all_files = glob.glob(f"C:\data_set\**\*.wav")
 
 length_of_chunk = 8
 count_chunks = 5
 
-for file in all_files:
+for file in tqdm(all_files):
     song = AudioSegment.from_wav(file)
 
     startMin = 0
